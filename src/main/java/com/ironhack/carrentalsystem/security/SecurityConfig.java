@@ -55,11 +55,14 @@ public class SecurityConfig {
                         // Authenticated endpoints
                         .requestMatchers(GET, "/api/users/me/**", "/api/bookings/myBookings").authenticated()
                         .requestMatchers(PATCH, "/api/users/me/**").authenticated()
+                        .requestMatchers(POST, "/api/bookings/newBooking/**").authenticated()
 
                         // Admin endpoints
+                        .requestMatchers("api/roles/**", "/api/bookings/**").hasAnyAuthority("ADMIN")
                         .requestMatchers(GET, "api/users", "/api/bookings").hasAnyAuthority("ADMIN")
-                        .requestMatchers(POST, "api/cars/**", "/api/users/newUser/**", "/api/bookings/newBooking/**").hasAnyAuthority("ADMIN")
-                        .requestMatchers(PATCH, "api/cars", "/api/bookings/**").hasAnyAuthority("ADMIN")
+                        .requestMatchers(POST, "api/cars/**", "/api/users/newUser/**", "/api/bookings/**").hasAnyAuthority("ADMIN")
+                        .requestMatchers(PATCH, "api/cars").hasAnyAuthority("ADMIN")
+                        .requestMatchers(PUT, "api/cars/pricing/**", "/api/carParameters/**").hasAnyAuthority("ADMIN")
                         .requestMatchers(DELETE, "api/cars/**", "/api/users/**").hasAnyAuthority("ADMIN")
 
                         .anyRequest().authenticated());

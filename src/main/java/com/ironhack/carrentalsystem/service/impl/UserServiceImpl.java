@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final PasswordEncoder passwordEncoder;
 
     // Spring Security method
-//    @Override
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
                 User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> {
