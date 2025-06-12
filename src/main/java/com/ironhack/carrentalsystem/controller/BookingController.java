@@ -4,6 +4,7 @@ import com.ironhack.carrentalsystem.dto.BookingRequestDTO;
 import com.ironhack.carrentalsystem.dto.BookingResponseDTO;
 import com.ironhack.carrentalsystem.dto.BookingSuccessResponse;
 import com.ironhack.carrentalsystem.dto.UpdateBookingDTO;
+import com.ironhack.carrentalsystem.repository.UserRepository;
 import com.ironhack.carrentalsystem.service.BookingService;
 import com.ironhack.carrentalsystem.service.UserService;
 import com.ironhack.carrentalsystem.service.impl.BookingServiceImpl;
@@ -11,7 +12,11 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
@@ -24,13 +29,14 @@ public class BookingController {
     private final BookingServiceImpl bookingServiceImpl;
     private final BookingService bookingService;
     private final UserService userService;
+    private final UserRepository userRepository;
 
     @GetMapping
     public List<BookingResponseDTO> getAllBookings() {
         return bookingService.getAllBookings();
     }
 
-    @PostMapping("/newBooking")
+    @PostMapping()
     public ResponseEntity<?> createBooking(@Valid @RequestBody BookingRequestDTO request) {
         try {
             BookingResponseDTO response = bookingService.createBooking(request);

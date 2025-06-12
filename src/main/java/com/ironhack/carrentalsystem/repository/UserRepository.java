@@ -1,6 +1,7 @@
 package com.ironhack.carrentalsystem.repository;
 
 import com.ironhack.carrentalsystem.model.User;
+import com.ironhack.carrentalsystem.model.enums.DrivingLicenseStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAll();
     Optional<User> findByUsername(String username);
     List<User> findByRoles_Name(String rolesName);
+    Long id(Long id);
+    List<User> findByLicenseStatus(DrivingLicenseStatus status);
 }

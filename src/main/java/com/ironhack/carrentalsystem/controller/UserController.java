@@ -9,9 +9,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
 import java.util.List;
@@ -78,8 +81,20 @@ public class UserController {
     }
 
     // Delete user
-    @DeleteMapping("/deleteUser/{username}")
+    @DeleteMapping("/{username}")
     public ResponseEntity<String> deleteUser(@PathVariable String username) {
+        // Get the current authenticated user's username
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String loggedInUsername;
+        if (principal instanceof UserDetails) {
+            loggedInUsername = ((UserDetails) principal).getUsername();
+        } else {
+            loggedInUsername = principal.toString();
+        }
+        // Prevent user from deleting themselves
+        if (username.equalsIgnoreCase(loggedInUsername)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You cannot delete yourself.");
+        }
         userServiceImpl.deleteUserByUsername(username);
         return ResponseEntity.ok("User '" + username + "' deleted successfully.");
     }

@@ -6,6 +6,7 @@ import com.ironhack.carrentalsystem.model.Booking;
 import com.ironhack.carrentalsystem.model.Car;
 import com.ironhack.carrentalsystem.model.Role;
 import com.ironhack.carrentalsystem.model.User;
+import com.ironhack.carrentalsystem.model.enums.DrivingLicenseStatus;
 import com.ironhack.carrentalsystem.repository.RoleRepository;
 import com.ironhack.carrentalsystem.repository.UserRepository;
 import com.ironhack.carrentalsystem.service.UserService;
@@ -35,7 +36,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final PasswordEncoder passwordEncoder;
 
     // Spring Security method
-//    @Override
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
                 User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> {
@@ -148,5 +149,36 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findAll().stream()
                 .map(UserToUserDTOMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    //
+    @Override
+    public void submitDrivingLicense(Long userId, String licenseNumber) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        user.setDrivingLicenseNumber(licenseNumber);
+        user.setLicenseStatus(DrivingLicenseStatus.PENDING);
+        userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getUsersByLicenseStatus(DrivingLicenseStatus status) {
+        return userRepository.findByLicenseStatus(status);
+    }
+
+    @Override
+    public void approveDrivingLicense(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        user.setLicenseStatus(DrivingLicenseStatus.APPROVED);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void rejectDrivingLicense(Long userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        user.setLicenseStatus(DrivingLicenseStatus.REJECTED);
+        userRepository.save(user);
     }
 }

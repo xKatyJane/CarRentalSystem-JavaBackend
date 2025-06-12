@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/pricingUpdate")
+@RequestMapping("api/cars/pricing")
 @AllArgsConstructor
 public class CarPricingController {
     private final CarPricingServiceImpl carPricingServiceImpl;
