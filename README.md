@@ -34,15 +34,13 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
 - GET api/cars/id/{carId}
 - GET api/cars/plate/{plateNumber}
 - DELETE api/cars/{id}
-- PUT api/carParameters/{carId}<br>&nbsp;&nbsp;&nbsp;&nbsp;{"mileage", "nextInspectionDate", "categories"}
-- PUT api/pricing
-        {"carId", "pricePerDay"}
+- PUT api/carParameters/{carId}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"mileage", "nextInspectionDate", "categories"}
+- PUT api/pricing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"carId", "pricePerDay"}
   
 ### Roles
 - GET api/roles
 - POST api/roles
 - DELETE api/roles
-- PATCH api/roles/roleAssignment
-         {"username", "role"}
+- PATCH api/roles/roleAssignment<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"username", "role"}
 
 - GET api/users
