@@ -27,7 +27,7 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
 ![Diagram](https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/Car_rental_diagram.png)
 
 ## Methodology
-Initially the app is loaded with two roles: USER and ADMIN. The endpoints are authenticated using JWT Tokens. The endpoints: "/api/login", "/api/cars", "/api/cars/priceRange" and "/api/cars/available" have open access. /api/users/registration is available only for unauthenticated users: it allows them to register and obtain the credentials.<br>Authenticated endpoints include: GET "/api/users/me" and GET "/api/bookings/myBookings": these endpoints allow for an authenticated user to see their own data and bookings, respectively. This prevents regular users from seeing other user's data, as they can only access their own. Similarly, PATCH "/api/users/me" allows authenticated users to update their own data. POST "/api/bookings/newBooking" allows the authenticated users to create a new booking, and by using POST "/api/driving-licenses" these users can submit their driving license number for admin's approval.<br>All the remaining endpoints are admin endpoints.
+Initially the app is loaded with two roles: USER and ADMIN. The endpoints are authenticated using JWT Tokens. The endpoints: "/api/login", "/api/cars", "/api/cars/priceRange" and "/api/cars/available" have open access. /api/users/registration is available only for unauthenticated users: it allows them to register and obtain the credentials.<br><br>Authenticated endpoints include: GET "/api/users/me" and GET "/api/bookings/myBookings": these endpoints allow for an authenticated user to see their own data and bookings, respectively. This prevents regular users from seeing other user's data, as they can only access their own. Similarly, PATCH "/api/users/me" allows authenticated users to update their own data. POST "/api/bookings/newBooking" allows the authenticated users to create a new booking, and by using POST "/api/driving-licenses" these users can submit their driving license number for admin's approval.<br><br>All the remaining endpoints are admin endpoints. Admin functions include creating new roles, users, cars, as well as update operations: car pricing and car parameters updates. All the DELETE endpoints are admin only.
 
 ## Endpoints
 
@@ -47,8 +47,8 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
   
 ### Roles
 - GET api/roles
-- POST api/roles
-- DELETE api/roles
+- POST api/roles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"name"}
+- DELETE api/roles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"name"}
 - PATCH api/roles/roleAssignment<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"username", "role"}
 
 ### Users
@@ -64,7 +64,7 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 - GET api/bookings/{bookingId}
 - GET api/bookings/customer/{customerId}
 - GET api/bookings/myBookings
-- POST api/bookings
+- POST api/bookings<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"userId", "carId", "startDateTime", "endDateTime"}
 - PATCH api/bookings/{id}
 - DELETE api/bookings/{bookingId}
 
