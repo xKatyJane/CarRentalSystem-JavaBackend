@@ -34,8 +34,7 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
 - GET api/cars/id/{carId}
 - GET api/cars/plate/{plateNumber}
 - DELETE api/cars/{id}
-- PUT api/carParameters/{carId}
-        {"mileage", "nextInspectionDate", "categories"}
+- PUT api/carParameters/{carId}<br>&nbsp;&nbsp;&nbsp;&nbsp;{"mileage", "nextInspectionDate", "categories"}
 - PUT api/pricing
         {"carId", "pricePerDay"}
   
