@@ -1,20 +1,20 @@
-# 🚗 Car Rental System API
+#Car Rental System API 🚗
 
-This is a **backend-only RESTful API** for a Car Rental System developed using **Java**, **Spring Boot**, **JPA**, and **SQL**. It provides endpoints to manage cars, customers, and rental bookings with full CRUD functionality via standard HTTP methods.
+This is a **backend-only RESTful API**, prepared as a final project for the Ironhack Java Backend development bootcamp.
+This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA**, and **MySQL**. It provides endpoints to manage cars, users, roles and bookings with full CRUD functionality via standard HTTP methods.
 
----
 
-## 📦 Tech Stack
 
-- Java 17+
+## Tech Stack
+
+- Java
+- Maven
 - Spring Boot
 - Spring Data JPA (Hibernate)
-- SQL (MySQL/PostgreSQL)
-- Maven
+- SQL (MySQL)
 
----
 
-## ⚙️ Features
+## Features
 
 - Car inventory management
 - Customer registration and management
