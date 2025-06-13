@@ -25,3 +25,5 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
 ---
 
 ![Alt Text](assets/Car_rental_diagram.png)
+
+![Diagram](https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/Car_rental_diagram.png)
