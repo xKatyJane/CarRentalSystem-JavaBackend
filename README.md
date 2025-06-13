@@ -22,8 +22,6 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
 - RESTful endpoints with GET, POST, PUT, PATCH, DELETE
 - Uses JPA for database access
 
----
-
-![Alt Text](assets/Car_rental_diagram.png)
+## Diagram
 
 ![Diagram](https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/Car_rental_diagram.png)
