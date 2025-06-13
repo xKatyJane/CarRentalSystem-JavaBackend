@@ -25,3 +25,25 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
 ## Diagram
 
 ![Diagram](https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/Car_rental_diagram.png)
+
+## Endpoints
+### Cars
+- GET api/cars
+- GET api/cars/priceRange
+- GET api/cars/available
+- GET api/cars/id/{carId}
+- GET api/cars/plate/{plateNumber}
+- DELETE api/cars/{id}
+- PUT api/carParameters/{carId}
+        {"mileage", "nextInspectionDate", "categories"}
+- PUT api/pricing
+        {"carId", "pricePerDay"}
+  
+### Roles
+- GET api/roles
+- POST api/roles
+- DELETE api/roles
+- PATCH api/roles/roleAssignment
+         {"username", "role"}
+
+- GET api/users
