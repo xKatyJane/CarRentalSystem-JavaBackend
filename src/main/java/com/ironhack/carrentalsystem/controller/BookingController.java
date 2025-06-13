@@ -26,10 +26,7 @@ import java.util.Map;
 @RequestMapping("api/bookings")
 @AllArgsConstructor
 public class BookingController {
-    private final BookingServiceImpl bookingServiceImpl;
     private final BookingService bookingService;
-    private final UserService userService;
-    private final UserRepository userRepository;
 
     @GetMapping
     public List<BookingResponseDTO> getAllBookings() {

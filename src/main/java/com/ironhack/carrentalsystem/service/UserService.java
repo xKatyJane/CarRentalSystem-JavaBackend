@@ -1,6 +1,7 @@
 package com.ironhack.carrentalsystem.service;
 
 import com.ironhack.carrentalsystem.dto.CreateUserDTO;
+import com.ironhack.carrentalsystem.dto.RegisterUserDTO;
 import com.ironhack.carrentalsystem.dto.UpdateUserDTO;
 import com.ironhack.carrentalsystem.dto.UserDTO;
 import com.ironhack.carrentalsystem.model.User;
@@ -21,6 +22,8 @@ public interface UserService {
 
     // Save a new user to the database
     void createNewUser(CreateUserDTO createUserDTO);
+
+    void registerUser(RegisterUserDTO registerUserDTO);
 
     // Delete user
     void deleteUserByUsername(String username);

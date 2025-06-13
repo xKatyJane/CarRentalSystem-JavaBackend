@@ -26,7 +26,6 @@ import java.util.Optional;
 @RequestMapping("api/cars")
 @AllArgsConstructor
 public class CarController {
-    private final CarServiceImpl carServiceImpl;
     private final CarService carService;
 
     @GetMapping
@@ -36,7 +35,7 @@ public class CarController {
             @RequestParam(required = false) PetrolType petrolType,
             @RequestParam(required = false) String make
             ) {
-        return carServiceImpl.getFilteredCars(category, gearBoxType, petrolType, make);
+        return carService.getFilteredCars(category, gearBoxType, petrolType, make);
     }
 
     @GetMapping("/priceRange")
@@ -56,7 +55,7 @@ public class CarController {
 
     @GetMapping("/plate/{plateNumber}")
     public ResponseEntity<?> getCarByPlateNumber(@PathVariable String plateNumber) {
-        Optional<Car> carOptional = carServiceImpl.getCarByPlateNumber(plateNumber);
+        Optional<Car> carOptional = carService.getCarByPlateNumber(plateNumber);
         if (carOptional.isPresent()) {
             return ResponseEntity.ok(carOptional.get());
         } else {
@@ -68,7 +67,7 @@ public class CarController {
 
     @GetMapping("/id/{id}")
     public ResponseEntity<?> getCarById(@PathVariable Long id) {
-        Optional<Car> carOptional = carServiceImpl.getCarById(id);
+        Optional<Car> carOptional = carService.getCarById(id);
         if (carOptional.isPresent()) {
             return ResponseEntity.ok(carOptional.get());
         } else {
@@ -98,7 +97,7 @@ public class CarController {
         return ResponseEntity.ok("New car added successfully");
     }
 
-    @DeleteMapping("/deleteCar/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCar(@PathVariable Long id) {
         try {
             carService.deleteCarById(id);

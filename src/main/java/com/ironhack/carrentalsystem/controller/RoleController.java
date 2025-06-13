@@ -2,6 +2,7 @@ package com.ironhack.carrentalsystem.controller;
 
 import com.ironhack.carrentalsystem.dto.RoleToUserDTO;
 import com.ironhack.carrentalsystem.model.Role;
+import com.ironhack.carrentalsystem.service.RoleService;
 import com.ironhack.carrentalsystem.service.impl.RoleServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping("api/roles")
 @AllArgsConstructor
 public class RoleController {
+    private final RoleService roleService;
     private final RoleServiceImpl roleServiceImpl;
 
     @RestControllerAdvice

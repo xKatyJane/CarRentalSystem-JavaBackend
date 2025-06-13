@@ -14,10 +14,9 @@ import java.util.Map;
 @RequestMapping("api/carParameters")
 @AllArgsConstructor
 public class CarParametersController {
-
     private final CarParametersService carParametersService;
 
-    @PutMapping("/{carId}")
+    @PatchMapping("/{carId}")
     public ResponseEntity<?> updateCarParameters(
             @PathVariable Long carId,
             @RequestBody CarParametersUpdateDTO dto

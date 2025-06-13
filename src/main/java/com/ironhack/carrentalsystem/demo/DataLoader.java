@@ -19,7 +19,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
-@Profile("dev") // Only active when "dev" profile is enabled
+@Profile("dev")
 public class DataLoader implements CommandLineRunner {
 
     private final CarRepository carRepository;

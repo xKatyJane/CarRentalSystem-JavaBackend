@@ -13,7 +13,6 @@ import java.util.Map;
 @RequestMapping("api/cars/pricing")
 @AllArgsConstructor
 public class CarPricingController {
-    private final CarPricingServiceImpl carPricingServiceImpl;
     private final CarPricingService carPricingService;
 
     @PutMapping()

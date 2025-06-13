@@ -23,12 +23,7 @@ import java.util.List;
 @RequestMapping("api/users")
 @AllArgsConstructor
 public class UserController {
-    private final UserServiceImpl userServiceImpl;
-    private final UserRepository userRepository;
     private final UserService userService;
-    private AuthenticationManager authenticationManager;
-    private PasswordEncoder passwordEncoder;
-    private final SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
 
     @RestControllerAdvice
     public class GlobalExceptionHandler {
@@ -44,14 +39,14 @@ public class UserController {
     // List all users
     @GetMapping
     public List<UserDTO> getAllUsers() {
-        return userServiceImpl.getAllUsers();
+        return userService.getAllUsers();
     }
 
     // Register as a new user with role USER
     @PostMapping("/registration")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> registerUser(@RequestBody RegisterUserDTO registerUserDTO) {
-        userServiceImpl.registerUser(registerUserDTO);
+        userService.registerUser(registerUserDTO);
         return ResponseEntity.ok(String.format("User %s registered successfully as USER", registerUserDTO.getUsername()));
     }
 
@@ -59,7 +54,7 @@ public class UserController {
     @PostMapping("/newUser")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> createNewUser(@RequestBody CreateUserDTO createUserDTO) {
-        userServiceImpl.createNewUser(createUserDTO);
+        userService.createNewUser(createUserDTO);
         return ResponseEntity.ok(String.format("New user %s created successfully.", createUserDTO.getUsername()));
     }
 
@@ -76,7 +71,7 @@ public class UserController {
     // Edit own data
     @PatchMapping("/me")
     public ResponseEntity<String> editOwnProfile(@RequestBody UpdateUserDTO dto, Principal principal) {
-        userServiceImpl.updateOwnInfo(principal.getName(), dto);
+        userService.updateOwnInfo(principal.getName(), dto);
         return ResponseEntity.ok("User profile updated successfully.");
     }
 
@@ -95,7 +90,7 @@ public class UserController {
         if (username.equalsIgnoreCase(loggedInUsername)) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You cannot delete yourself.");
         }
-        userServiceImpl.deleteUserByUsername(username);
+        userService.deleteUserByUsername(username);
         return ResponseEntity.ok("User '" + username + "' deleted successfully.");
     }
 }

@@ -151,7 +151,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .collect(Collectors.toList());
     }
 
-    //
+    // Submit driving license for review
     @Override
     public void submitDrivingLicense(Long userId, String licenseNumber) {
         User user = userRepository.findById(userId)
