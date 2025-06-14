@@ -81,4 +81,4 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 - 
 
 ## Link to the presentation about the project:
-https://docs.google.com/presentation/d/1uP-APjIxsNecglXtsgFtfzxdviEmOTCMMr_zoG4sONc/edit?slide=id.g3681e9d3af7_0_75#slide=id.g3681e9d3af7_0_75
+https://docs.google.com/presentation/d/1uP-APjIxsNecglXtsgFtfzxdviEmOTCMMr_zoG4sONc/edit?slide=id.p#slide=id.p
