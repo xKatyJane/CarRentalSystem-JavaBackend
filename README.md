@@ -47,7 +47,7 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 - GET api/cars/plate/{plateNumber}
 - POST api/cars<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"plateNumber", "petrolType", "gearBoxType", "make", "model", "numberOfSeats", "mileage", "nextInspectionDate", "categories", "pricePerDay"}
 - DELETE api/cars/{id}
-- PUT api/carParameters/{carId}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"mileage", "nextInspectionDate", "categories"}
+- PATCH api/carParameters/{carId}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"mileage", "nextInspectionDate", "categories"}
 - PUT api/pricing<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"carId", "pricePerDay"}
   
 ### Roles
