@@ -78,3 +78,7 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 - GET api/driving-licenses/admin
 - POST api/driving-licenses/admin/{requestId}/approve
 - POST api/driving-licenses/admin/{requestId}/reject
+- 
+
+## Link to the presentation about the project:
+https://docs.google.com/presentation/d/1uP-APjIxsNecglXtsgFtfzxdviEmOTCMMr_zoG4sONc/edit?slide=id.g3681e9d3af7_0_75#slide=id.g3681e9d3af7_0_75
