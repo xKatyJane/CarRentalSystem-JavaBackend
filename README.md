@@ -1,6 +1,6 @@
 # Car Rental System API
 
-This is a **backend-only RESTful API**, prepared as a final project for the Ironhack Java Backend development bootcamp, completed between March and June 2025.
+This is a **backend-only RESTful API**, prepared as a final project for the Ironhack Java Backend development bootcamp.
 This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA**, and **MySQL**. It provides endpoints to manage cars, users, roles and bookings with full CRUD functionality via standard HTTP methods.
 
 
@@ -78,7 +78,8 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 - GET api/driving-licenses/admin
 - POST api/driving-licenses/admin/{requestId}/approve
 - POST api/driving-licenses/admin/{requestId}/reject
-- 
+
+### Class diagram
 
 ## Link to the presentation about the project:
 https://docs.google.com/presentation/d/1uP-APjIxsNecglXtsgFtfzxdviEmOTCMMr_zoG4sONc/edit?slide=id.p#slide=id.p
