@@ -27,10 +27,6 @@ This Car Rental System has been developed using **Java**, **Spring Boot**, **JPA
   <li>Uses JPA for database access</li>
 </ul>
 
-## Diagram
-
-![Diagram](https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/Car_rental_diagram.png)
-
 ## Methodology
 Initially the app is loaded with two roles: USER and ADMIN. The endpoints are authenticated using JWT Tokens. The endpoints: "/api/login", "/api/cars", "/api/cars/priceRange" and "/api/cars/available" have open access. /api/users/registration is available only for unauthenticated users: it allows them to register and obtain the credentials.<br><br>Authenticated endpoints include: GET "/api/users/me" and GET "/api/bookings/myBookings": these endpoints allow for an authenticated user to see their own data and bookings, respectively. This prevents regular users from seeing other user's data, as they can only access their own. Similarly, PATCH "/api/users/me" allows authenticated users to update their own data. POST "/api/bookings/newBooking" allows the authenticated users to create a new booking, and by using POST "/api/driving-licenses" these users can submit their driving license number for admin's approval.<br><br>All the remaining endpoints are admin endpoints. Admin functions include creating new roles, users, cars, as well as update operations: car pricing and car parameters updates. All the DELETE endpoints are admin only.
 
@@ -80,9 +76,8 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 - POST api/driving-licenses/admin/{requestId}/reject
 
 ### Class diagram
-
 <p align="center">
-  <img src="https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/ClassDiagram.png" width="650">
+  <img src="https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/ClassDiagram.png">
 </p>
 
 ## Link to the presentation about the project:
