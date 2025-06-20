@@ -79,6 +79,3 @@ Initially the app is loaded with two roles: USER and ADMIN. The endpoints are au
 <p align="center">
   <img src="https://raw.githubusercontent.com/xKatyJane/CarRentalSystem-JavaBackend/master/assets/ClassDiagram.png">
 </p>
-
-## Link to the presentation about the project:
-https://docs.google.com/presentation/d/1uP-APjIxsNecglXtsgFtfzxdviEmOTCMMr_zoG4sONc/edit?slide=id.p#slide=id.p
